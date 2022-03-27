@@ -55,7 +55,7 @@ export const getChainId = (rawDocument: WrappedOrSignedOpenAttestationDocument):
   const processChainId = (document: OpenAttestationDocument): number | undefined => {
     if (document.network) {
       // Check for current bc, "ETH", and chainId, if need cater for other bc and network, update this accordingly. (V2)
-      if (document.network.chain === "ETH" && document.network.chainId) {
+      if (document.network.chainId) {
         const chainIdNumber = parseInt(document.network.chainId);
         const isChainIdInListedNetwork = networks.includes(chainIdNumber);
         if (!chainIdNumber || !isChainIdInListedNetwork) throwError();
